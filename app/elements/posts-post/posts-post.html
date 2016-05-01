@@ -9,6 +9,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../elements/posts-list/posts-list.html">
 
 <dom-module id="posts-post">
   <template>
@@ -17,6 +18,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         display: block;
       }
     </style>
+    <post-list></post-list>
     <div>This must list the post of {{<span>post</span>}}.</div>
   </template>
   <script>

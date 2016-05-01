@@ -1,4 +1,4 @@
-<!doctype html>
+  <!doctype html>
 <!--
 @license
 Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
@@ -107,6 +107,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <div data-route="home">Micro-reto Kairos</div>
               <div data-route="users">Users</div>
               <div data-route="posts">Posts</div>
+              <div data-route="users-profile">User Profile</div>
             </iron-pages>
           </div>
 
@@ -130,13 +131,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <section data-route="users">
               <paper-material elevation="1">
                 <h2 class="page-title">Users</h2>
-                <users-list route="/users/:id"></users-list>
+                <users-list users="[[users]]" route="/users/:id"></users-list>
                 <users-list-data data="[[params]]" users="{{users}}"></users-list-data>
               </paper-material>
             </section>
 
             <section data-route="users-profile">
               <paper-material elevation="1">
+                <h2 class="page-title">User Detail</h2>
                 <users-user user="[[user]]"></users-user>
                 <users-user-data data="[[params]]" user="{{user}}"></users-user-data>
               </paper-material>
@@ -145,7 +147,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <section data-route="posts">
               <paper-material elevation="1">
                 <h2 class="page-title">Posts</h2>
-                <posts-list route="/posts/:id"></posts-list>
+                <posts-list posts="[[posts]]" route="/posts/:id"></posts-list>
                 <posts-list-data data="[[params]]" posts="{{posts}}"></posts-list-data>
               </paper-material>
             </section>

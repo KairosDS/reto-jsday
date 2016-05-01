@@ -17,6 +17,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         display: block;
       }
     </style>
+    <iron-ajax id="getchannels"
+        auto
+        url="http://jsonplaceholder.typicode.com/users/{{id}}"
+        headers={{ parseHeader }}
+        method='GET'
+        verbose=true
+        handle-as="json"
+        last-response="{{user}}"
+        last-error="{{error}}">
+      </iron-ajax>
     <div>This must get the list of posts and expose in {{<span>user</span>}}.</div>
   </template>
   <script>
@@ -25,7 +35,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     Polymer({
       is: 'users-user-data',
-
+      ready:function(){
+        console.log(this.params.id);
+      },
       properties: {
         data: Object,
         user: {

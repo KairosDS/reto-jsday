@@ -16,8 +16,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       :host {
         display: none;
       }
-    </style>
-    <div>This must get the list of posts and expose in {{<span>posts</span>}}.</div>
+    </style>    
+      <iron-ajax id="getchannels"
+        auto
+        url="http://jsonplaceholder.typicode.com/posts"
+        headers={{ parseHeader }}
+        method='GET'
+        verbose=true
+        handle-as="json"
+        last-response="{{posts}}"
+        last-error="{{error}}">
+      </iron-ajax>
   </template>
   <script>
   (function() {
@@ -28,8 +37,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       properties: {
         data: Object,
+        notify: true,
         posts: {
           type: Array,
+          notify: true,
+
           value: function() {
             return [];
           }

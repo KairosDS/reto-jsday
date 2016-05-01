@@ -17,15 +17,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         display: block;
       }
     </style>
-    <div>This must list the post of {{<span>posts</span>}} and navigate to the url provided by {{<span>route</span>}}</div>
+    <template is="dom-repeat" items="[[posts]]">
+     <paper-material elevation="2">
+       <h2>[[item.title]]</h2>
+       [[item.body]]
+     <paper-material>
+    </template>
   </template>
   <script>
   (function() {
     'use strict';
 
     Polymer({
-      is: 'posts-list',
-
+    
       properties: {
         posts: Array,
         route: {
