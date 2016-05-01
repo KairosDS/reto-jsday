@@ -52,7 +52,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     page('/posts', function() {
       app.route = 'posts';
     });
-
+    page('/post/:id', function(data) {
+      app.route = 'posts-post';
+      app.params = data.params;
+    });
     page('/user/:id', function(data) {
       app.route = 'users-profile';
       app.params = data.params;

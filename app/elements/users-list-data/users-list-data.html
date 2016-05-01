@@ -20,12 +20,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      <iron-ajax id="getchannels"
         auto
         url="http://jsonplaceholder.typicode.com/users"
-        headers={{ parseHeader }}
-        method='GET'
-        verbose=true
         handle-as="json"
-        last-response="{{users}}"
-        last-error="{{error}}">
+        last-response="{{users}}">
       </iron-ajax>
   </template>
   <script>

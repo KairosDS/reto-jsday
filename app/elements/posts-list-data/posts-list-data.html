@@ -17,15 +17,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         display: none;
       }
     </style>    
-      <iron-ajax id="getchannels"
+      <iron-ajax
         auto
         url="http://jsonplaceholder.typicode.com/posts"
-        headers={{ parseHeader }}
-        method='GET'
-        verbose=true
         handle-as="json"
-        last-response="{{posts}}"
-        last-error="{{error}}">
+        last-response="{{posts}}">
       </iron-ajax>
   </template>
   <script>
@@ -37,7 +33,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       properties: {
         data: Object,
-        notify: true,
         posts: {
           type: Array,
           notify: true,

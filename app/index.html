@@ -107,7 +107,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <div data-route="home">Micro-reto Kairos</div>
               <div data-route="users">Users</div>
               <div data-route="posts">Posts</div>
-              <div data-route="users-profile">User Profile</div>
+              <div data-route="posts-post">[[post.title]]</div>
+              
+              <div data-route="users-profile">[[user.name]]</div>
             </iron-pages>
           </div>
 
@@ -129,11 +131,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </section>
 
             <section data-route="users">
-              <paper-material elevation="1">
                 <h2 class="page-title">Users</h2>
                 <users-list users="[[users]]" route="/users/:id"></users-list>
                 <users-list-data data="[[params]]" users="{{users}}"></users-list-data>
-              </paper-material>
             </section>
 
             <section data-route="users-profile">
@@ -145,16 +145,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </section>
 
             <section data-route="posts">
-              <paper-material elevation="1">
                 <h2 class="page-title">Posts</h2>
                 <posts-list posts="[[posts]]" route="/posts/:id"></posts-list>
                 <posts-list-data data="[[params]]" posts="{{posts}}"></posts-list-data>
-              </paper-material>
             </section>
             
             <section data-route="posts-post">
               <paper-material elevation="1">
-                <posts-post data="[[params]]"></posts-post>
+                <posts-post post="[[post]]" data="[[params]]"></posts-post>
                 <posts-post-data data="[[params]]" post="{{post}}"></posts-post-data>
               </paper-material>
             </section>
