@@ -16,22 +16,34 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       :host {
         display: block;
       }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
     </style>
-    <div>This must list the post of {{<span>posts</span>}} and navigate to the url provided by {{<span>route</span>}}</div>
+    <template is="dom-repeat" items="[[posts]]">
+      <a href="/post/[[item.id]]" tabindex="-1"> 
+       <paper-material elevation="2">
+         <h2>[[item.title]]</h2>
+       <paper-material>
+      </a>
+    </template>
   </template>
   <script>
   (function() {
     'use strict';
 
     Polymer({
-      is: 'posts-list',
-
+      is:'posts-list',
       properties: {
         posts: Array,
         route: {
           type: String,
           value: '/users/:id'
         }
+      },
+      getPostDetail: function(e){
+        this.baseUrl='/post/'+e.model.get('item.id');
       }
     });
   })();

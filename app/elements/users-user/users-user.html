@@ -17,7 +17,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         display: block;
       }
     </style>
-    <div>This must list the post of {{<span>user</span>}}.</div>
+    <div>
+      <h2>UserName:</h2>
+      <p>[[user.username]]</div>
+    </div>
+    <div>
+      <h2>Email:</h2>
+      <p>[[user.email]]</div>
+    </div>
+     <div>
+      <h2>Phone:</h2>
+      <p>[[user.phone]]</div>
+    </div>
+     <div>
+      <h2>Web:</h2>
+      <p>[[user.website]]</div>
+    </div>
+
   </template>
   <script>
   (function() {
@@ -27,6 +43,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       is: 'users-user',
 
       properties: {
+        notify: true,
         user: Object
       }
     });

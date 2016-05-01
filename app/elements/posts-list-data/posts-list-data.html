@@ -16,8 +16,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       :host {
         display: none;
       }
-    </style>
-    <div>This must get the list of posts and expose in {{<span>posts</span>}}.</div>
+    </style>    
+      <iron-ajax
+        auto
+        url="http://jsonplaceholder.typicode.com/posts"
+        handle-as="json"
+        last-response="{{posts}}">
+      </iron-ajax>
   </template>
   <script>
   (function() {
@@ -30,6 +35,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         data: Object,
         posts: {
           type: Array,
+          notify: true,
+
           value: function() {
             return [];
           }

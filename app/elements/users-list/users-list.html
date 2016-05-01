@@ -16,8 +16,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       :host {
         display: block;
       }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
     </style>
-    <div>This must list the post of {{<span>users</span>}} and navigate to the url provided by {{<span>route</span>}}</div>
+    <template is="dom-repeat" items="[[users]]">
+   
+       <a href="/user/[[item.id]]">
+          <paper-material elevation="2" >
+            <h2>[[item.username]]</h2>
+          <paper-material>
+       </a>
+
+   </template>
   </template>
   <script>
   (function() {
@@ -27,11 +39,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       is: 'users-list',
 
       properties: {
-        posts: Array,
+        users: Array,
         route: {
           type: String,
-          value: '/posts/:id'
+          value: '/users/:id'
         }
+      },
+      
+      getUserDetail: function(e){
+        this.baseUrl='/user/'+e.model.get('item.id');
       }
     });
   })();
